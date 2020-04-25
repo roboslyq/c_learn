@@ -1,4 +1,4 @@
-#include "function.h" //引入头文件
+#include "function.h"
 
 //实现头文件中的函数
 int max(int a ,int b){

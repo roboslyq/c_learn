@@ -19,11 +19,10 @@ project(c_learn)
 set(CMAKE_C_STANDARD 99)
 
 #头文件引用路径：
-include_directories(src/function)
+include_directories(function)
 
 #如果有子CMakeFile文件
-#add_subdirectory(src/function)
+#add_subdirectory(function)
 
 #控制多个可执行文件
-add_executable(main src/main.c)
-add_executable(main_function src/function/main.c)
+add_executable(main main.c function/function.c)
