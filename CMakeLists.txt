@@ -24,10 +24,11 @@ include_directories(function pthread)
 #如果有子CMakeFile文件
 #add_subdirectory(function)
 
-set(SOURCE_TMP function/function.c pthread/thread.c pthread/thread_main.c)
+set(SOURCE_TMP function/function.c pthread/thread.c )
 #控制多个可执行文件（可以添加多个）
 add_executable(main main.c ${SOURCE_TMP})
 add_executable(thread_main pthread/thread_main.c ${SOURCE_TMP})
+add_executable(test_main test/test_main.c ${SOURCE_TMP})
 #add_executable(main1 main1.c ${SOURCE_TMP})
 #add_executable(main1 main2.c ${SOURCE_TMP})
 
