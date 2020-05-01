@@ -40,5 +40,5 @@ int add(int val1,int val2){
     pthread_join(pid,&retval);
     printf("res: %s \n",(char*)retval);
 
-    return &retval;
+    return 0;
 }
