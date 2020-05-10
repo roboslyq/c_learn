@@ -5,6 +5,8 @@
     <sourceRoots>
       <file path="$PROJECT_DIR$/file" />
       <file path="$PROJECT_DIR$/function" />
+      <file path="$PROJECT_DIR$/lib" />
+      <file path="$PROJECT_DIR$/memory" />
       <file path="$PROJECT_DIR$/network" />
       <file path="$PROJECT_DIR$/src" />
       <file path="$PROJECT_DIR$/thread" />

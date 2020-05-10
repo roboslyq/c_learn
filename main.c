@@ -1,13 +1,32 @@
 #include <stdio.h>
-#include "function.h"
-#include "thread.h"
-
-
-int main() {
-    age = 10;
-    printf("Hello, World!\n");
-    printf("Hello, World! %d \n",add(1,2));
-//    printf("%d \n",max(1,2));
-//    printf("age = %d \n",age);
-    return 0;
+int tag[8];
+int main( )
+{
+    int addr;
+    int i, t;
+    int hits, accesses;
+    FILE *fp;
+    fp = fopen("trace.txt", "r");
+    hits = 0;
+    accesses = 0;
+    while (fscanf(fp, "%x", &addr) > 0) {
+        /* simulate a direct-mapped cache with 8 words */
+        accesses += 1;
+        printf("%3d: 0x%08x ", accesses, addr);
+        i = (addr >> 2) & 7;
+        t = addr | 0x1f;
+        if (tag[i] == t) {
+            hits += 1;
+            printf("Hit%d ", i);
+        } else {
+            /* allocate entry */
+            printf("Miss ");
+            tag[i] = t;
+        }
+        for (i = 0; i < 8; i++)
+            printf("0x%08x ", tag[i]);
+        printf("\n");
+    }
+    printf("Hits = %d, Accesses = %d, Hit ratio = %f\n", hits, accesses, ((float)hits)/accesses);
+    fclose(fp);
 }
